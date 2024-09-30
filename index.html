@@ -3,78 +3,235 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Flutter Library</title>
+  <title>Flutter Packages Explorer</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f3f7fa;
+      display: flex;
     }
-    header {
-      background-color: #143cdb;
+    .sidebar {
+      width: 250px;
+      background-color: #143CDB;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
       color: white;
-      text-align: center;
-      padding: 1rem;
+      padding-top: 20px;
     }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 15px;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+    .sidebar a:hover {
+      background-color: #1d52e5;
+    }
+    .content {
+      margin-left: 250px;
+      padding: 20px;
+      width: calc(100% - 250px);
     }
     .card {
       background-color: white;
       border-radius: 10px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
     }
-    h1, h2 {
-      color: #143cdb;
+    .card h2 {
+      color: #143CDB;
     }
-    a {
-      color: #143cdb;
-      text-decoration: none;
+    pre {
+      background-color: #f3f7fa;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Your Flutter Library Okey</h1>
-  </header>
+  <!-- Left Sidebar -->
+  <div class="sidebar">
+    <h2 style="text-align: center;">Flutter Packages</h2>
+    <a href="#" onclick="showPackage('flutter_package_1')">Package 1: Custom Widgets</a>
+    <a href="#" onclick="showPackage('flutter_package_2')">Package 2: State Management</a>
+    <a href="#" onclick="showPackage('flutter_package_3')">Package 3: Animations</a>
+  </div>
 
-  <div class="container">
-    <div class="card">
-      <h2>About the Library</h2>
-      <p>This library helps you with [feature or function]. It’s designed to be easy to use, customizable, and fast. Ideal for Flutter developers!</p>
-    </div>
+  <!-- Main Content Area -->
+  <div class="content">
+    <!-- Package 1: Custom Widgets -->
+    <div id="flutter_package_1" class="card" style="display: none;">
+      <h2>Package 1: Custom Widgets</h2>
+      <div>
+        <h3>1. Description</h3>
+        <p>This package provides a collection of highly customizable widgets that can be easily integrated into your Flutter project.</p>
+      </div>
 
-    <div class="card">
-      <h2>Installation</h2>
-      <pre>
-flutter pub add your_package_name
-      </pre>
-    </div>
-
-    <div class="card">
-      <h2>Usage</h2>
-      <p>Here’s how you can use the package in your Flutter project:</p>
-      <pre>
-import 'package:your_package_name/your_package_name.dart';
-
-void main() {
-  runApp(MyApp());
+      <div>
+        <h3>2. Code</h3>
+        <pre><code>
+class CustomWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.blue,
+      child: Text('Custom Widget'),
+    );
+  }
 }
-      </pre>
+        </code></pre>
+      </div>
+
+      <div>
+        <h3>3. Example</h3>
+        <p>Here’s how you can use this widget:</p>
+        <pre><code>
+CustomWidget();
+        </code></pre>
+      </div>
+
+      <div>
+        <h3>4. Reactive Flutter Widgets (Images)</h3>
+        <p>Here are some images of the reactive widgets in action:</p>
+        <img src="https://via.placeholder.com/500x300" alt="Widget Image 1">
+        <img src="https://via.placeholder.com/500x300" alt="Widget Image 2">
+      </div>
     </div>
 
-    <div class="card">
-      <h2>Links</h2>
-      <ul>
-        <li><a href="https://pub.dev/packages/your_package_name" target="_blank">Pub.dev Page</a></li>
-        <li><a href="https://github.com/your_github_repo" target="_blank">GitHub Repository</a></li>
-      </ul>
+    <!-- Package 2: State Management -->
+    <div id="flutter_package_2" class="card" style="display: none;">
+      <h2>Package 2: State Management</h2>
+      <div>
+        <h3>1. Description</h3>
+        <p>This package simplifies the process of managing state in Flutter applications.</p>
+      </div>
+
+      <div>
+        <h3>2. Code</h3>
+        <pre><code>
+class StateManagementWidget extends StatefulWidget {
+  @override
+  _StateManagementWidgetState createState() => _StateManagementWidgetState();
+}
+
+class _StateManagementWidgetState extends State<StateManagementWidget> {
+  int counter = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text('Counter: $counter'),
+        ElevatedButton(
+          onPressed: () {
+            setState(() {
+              counter++;
+            });
+          },
+          child: Text('Increment'),
+        ),
+      ],
+    );
+  }
+}
+        </code></pre>
+      </div>
+
+      <div>
+        <h3>3. Example</h3>
+        <p>Here’s an example of using state management:</p>
+        <pre><code>
+StateManagementWidget();
+        </code></pre>
+      </div>
+
+      <div>
+        <h3>4. Reactive Flutter Widgets (Images)</h3>
+        <p>Here are some images showing the state management in action:</p>
+        <img src="https://via.placeholder.com/500x300" alt="State Management Image 1">
+        <img src="https://via.placeholder.com/500x300" alt="State Management Image 2">
+      </div>
+    </div>
+
+    <!-- Package 3: Animations -->
+    <div id="flutter_package_3" class="card" style="display: none;">
+      <h2>Package 3: Animations</h2>
+      <div>
+        <h3>1. Description</h3>
+        <p>This package provides a set of animations that make your Flutter app more dynamic and interactive.</p>
+      </div>
+
+      <div>
+        <h3>2. Code</h3>
+        <pre><code>
+class AnimationWidget extends StatefulWidget {
+  @override
+  _AnimationWidgetState createState() => _AnimationWidgetState();
+}
+
+class _AnimationWidgetState extends State<AnimationWidget> with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
+  @override
+  void initState() {
+    _controller = AnimationController(duration: const Duration(seconds: 2), vsync: this);
+    _controller.forward();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ScaleTransition(
+      scale: _controller,
+      child: Container(
+        color: Colors.green,
+        child: Text('Animated Widget'),
+      ),
+    );
+  }
+}
+        </code></pre>
+      </div>
+
+      <div>
+        <h3>3. Example</h3>
+        <p>Here’s how you can use the animation widget:</p>
+        <pre><code>
+AnimationWidget();
+        </code></pre>
+      </div>
+
+      <div>
+        <h3>4. Reactive Flutter Widgets (Images)</h3>
+        <p>Here are some images showing the animation in action:</p>
+        <img src="https://via.placeholder.com/500x300" alt="Animation Image 1">
+        <img src="https://via.placeholder.com/500x300" alt="Animation Image 2">
+      </div>
     </div>
   </div>
+
+  <script>
+    function showPackage(packageId) {
+      var packages = document.querySelectorAll('.card');
+      packages.forEach(function(pkg) {
+        pkg.style.display = 'none';
+      });
+
+      var selectedPackage = document.getElementById(packageId);
+      if (selectedPackage) {
+        selectedPackage.style.display = 'block';
+      }
+    }
+  </script>
 </body>
 </html>
